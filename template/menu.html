@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        .container{
+            display: flex;
+            width: 100%;
+            height: 98vh;
+            border: 2px solid #000;
+        }
+        .menu{
+            width: 20%;
+            background-color: #446c7c;
+            padding: 20px;
+        }
+        .menu ul{
+            list-style-type: none;
+            padding: 0;
+        }
+        .menu li{
+            margin-bottom: 35px;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+        .image {
+            width: 100%;
+            height: 682px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            display: block;
+        }
+        #logo{
+            font-size: 35px;
+            color: white;
+        }
+        .logo2{
+            color: white;
+            font-size: 21px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <ul>
+                <li><a href="" id="logo">Menu</a></li>
+                <li><a href="{% url 'first_page' %}" class="logo2">Show Student List</a></li>
+                <li><a href="{% url 'create' %}" class="logo2">Add new student</a></li>
+                <li><a href="{% url 'contact' %}" class="logo2">Contact</a></li>
+                <li><a href="" class="logo2">About Us</a></li>
+                <li><a href="{% url 'sign_in' %}" class="logo2">Log-Out</a></li>
+            </ul>
+        </div>
+        <div class="image">
+            {% load static %}
+        <img src=" https://www.studentprojects.live/wp-content/uploads/2022/01/SCHOOLE-MANAGEMENT-SYSTEM-806x440.png" alt="" srcset="">
+        </div>
+    </div>
+    
+</body>
+</html>
+
+<!-- -->

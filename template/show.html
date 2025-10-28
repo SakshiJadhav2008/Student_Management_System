@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show List</title>
+    <style media="screen">
+    
+    body{
+        background-color: #b8cbd3;
+        color: #fff;
+    }
+    .table1{
+        max-height: 400px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        border: 1px solid black;
+    }
+    .show{
+        width: 100%;
+        border-collapse: collapse;
+    }
+    h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5%;
+        margin-bottom: 2%;
+        color: black;
+    }
+    .show tr{
+        padding: 20px;
+        color: rgb(255, 255, 255);
+        text-align: center;
+    }
+    .show th{
+        padding: 10px;
+        font-size: 19px;
+        color: black;
+    }
+    .show td{
+        padding: 10px;
+        font-size: 18px;
+        color: black;
+
+    }
+    .a{
+        text-align: center; 
+        position: sticky;
+        bottom: 0;
+        padding: 10px;
+        z-index: 1;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    button{
+        height: 40px;
+        font-size: 16px;
+        width: 13%;
+        padding: 10px 20px;
+        background-color: #fff;
+        border: none;
+        font-weight: bold;
+        border-radius: 3px;
+        color: black;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover{
+        background-color:rgb(75, 86, 118);
+        color: black;
+    }
+    .search{
+        height: 37px;
+        font-size: 16px;
+    }
+    form{
+        margin-bottom: 5px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Student List</h1>
+    
+        <form method="get" action="{% url 'first_page' %}">
+            <input class="search" type="text" name="search" placeholder="Search by name" value="{{ request.GET.search }}">
+            <button type="submit">Search</button>
+        </form>
+        <div class="table1">
+        <table border="2px solid black" class="show">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Update</th>
+                <th>Delete</th>
+                <th>View</th>
+            </tr>
+        {% for student in students %}
+            <tr>
+                <td>{{student.fname}}</td>
+                <td>{{student.lname}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.address}}</td>
+                <td><a href="{% url 'update' student.id %}">Update</a></td>
+                <td><a href="{% url 'delete' student.id %}">Delete</a></td>
+                <td><a href="{% url 'detail_student' student.id %}">View</a></td>
+            </tr>
+        {% empty %}
+        <tr class="nostudent"><td colspan="5">No student found</td></tr>
+        {% endfor %}
+        </table>
+    </div>
+    <div class="a">
+        <button><a href="{% url 'menu' %}">Back to menu</a></button>
+        <button><a href="{% url 'create' %}">Add new Student</a></button>
+    </div>
+</body>
+</html>

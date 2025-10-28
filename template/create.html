@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <style media="screen">
+    body{
+        background-color: #b8cbd3;
+        color: #fff;
+    }
+    h1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: capitalize;
+        color: black;
+    }
+    .studform{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding-left: 25px;
+        transform: translate(-50%,-50%);
+        width: 500px;
+        color: black;
+        background: rgba(255, 255, 255, 0.1); 
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    }
+    .studform h2{
+        font-size: 29px;
+        text-align: center;
+        margin: 40px 0;
+        color: black;
+    }
+    .studform p{
+        font-size: 20px;
+        margin: 15px 0;
+    }
+    .studform input{
+        font-size: 16px;
+        padding: 15px 10px;
+        width: 80%;
+        border: 0;
+        border-radius: 5px;
+        outline: none;
+    }
+    .studform button{
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px 0;
+        padding: 10px 15px;
+        width: 41%;
+        border: 0;
+        border-radius: 3px;
+        background-color: #fff;
+        transition: 0.3s;
+
+    }
+    .studform button:hover{
+        background-color:rgb(75, 86, 118);
+        color: black;
+    }
+    .studform a{
+        text-decoration: none;
+        color: black;
+    }
+    .image {
+            width: 100%;
+            height: 695px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            display: block;
+        }
+</style>
+</head>
+<body>
+    <div class="studform">
+        <h2>Add New Student</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+                <p>Enter your First name</p>
+                <input type="text" name="username" id="name" placeholder="Please Enter your first name">
+                <p>Enter your last name</p>
+                <input type="text" name="lastname" id="lname" placeholder="Please Enter your last name">
+                <p>Enter your age</p>
+                <input type="number" name="age" id="age" placeholder="Please Enter your age">
+                <p>Enter your address</p>
+                <input type="text" name="address" id="address" placeholder="Please Enter your address">
+                <button type="submit"><a href="{% url 'menu' %}">Cancle</a></button>&nbsp;
+                <button type="submit">Add</button>&nbsp;
+        </form>
+    </div>
+</body>
+</html>

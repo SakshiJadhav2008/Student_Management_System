@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <style>
+        body{
+        background-color: #b8cbd3;
+        color: black;
+    }
+        .show{
+        background: rgba(255, 255, 255, 0.1); 
+        backdrop-filter: blur(10px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        padding-left: 25px;
+        transform: translate(-50%,-50%);
+        width: 500px;
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    }
+    h3{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 5%;
+        color: black;
+    }
+    .show p{
+        font-size: 20px;
+        margin: 15px 0;
+    }
+    .show input{
+        font-size: 16px;
+        padding: 12px 10px;
+        width: 80%;
+        border: 0;
+        border-radius: 5px;
+        outline: none;
+    }
+    .show button{
+        font-size: 18px;
+        font-weight: bold;
+        margin: 20px 0;
+        padding: 10px 15px;
+        width: 41%;
+        border: 0;
+        border-radius: 3px;
+        background-color: #fff;
+        transition: 0.3s;
+
+    }
+    .show button:hover{
+        background-color:rgb(75, 86, 118);
+        color: white;
+    }
+    .show a{
+        text-decoration: none;
+        color: black;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="show">
+        <h3>Update Student</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <p>First name:</p>
+            <input type="text" name="first_name" value="{{student.fname}}"><br>
+            <p>Last name:</p>
+            <input type="text" name="last_name" value="{{student.lname}}"><br>
+            <p>Age:</p>
+            <input type="number" name="age" value="{{student.age}}"><br>
+            <p>Addres:</p>
+            <input type="text" name="address" value="{{student.address}}"><br>
+            <button type="submit"><a href="{% url 'first_page' %}">Cancel</a></button>
+            <button type="submit">Update</button>&nbsp;&nbsp;
+        </form>
+    </div>
+</body>
+</html>

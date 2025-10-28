@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student  Detail</title>
+    <style>
+        body{
+        background-color: #b8cbd3;
+        color: black;
+        margin: 20px;
+        padding: 10px;
+    }
+    p{
+        font-size: 20px;
+    }
+    a{
+        color: black;
+        font-size: 17px;
+    }
+    </style>
+</head>
+<body>
+    <h1>Student Details</h1>
+    <p><strong>Name:</strong> {{student.fname}}</p>
+    <p><strong>Last Name:</strong> {{student.lname}}</p>
+    <p><strong>Age: </strong>{{student.age}}</p>
+    <p><strong>Address: </strong>{{student.address}}</p>
+    <br>
+    <a href="{% url 'first_page' %}">Back To list</a>
+</body>
+</html>
